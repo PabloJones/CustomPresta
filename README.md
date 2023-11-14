@@ -6,7 +6,8 @@ El préstamo "En Sala", por defecto el prestamo se realiza por x horas, y durant
 El préstamo "Unico", se presta a partir de una determinada hora, y la fecha de devolución se establece en el dia siguiente habil antes una hora establecida. 
 El préstamo "Por el Dia", el préstamo se realiza el mismo día, y la hora de devolucion es la establecidad por el limite de horario de cierre. 
 La personalizacion incluye un botón de configuración, para personalizar los horarios y limites de tiempo.
-Las condiguraciones se realizan en la preferencias de sistema IntranetUserJS e IntranetUserCSS
+Las condiguraciones se realizan en la preferencias de sistema IntranetUserJS e IntranetUserCSS.
+Versión de Koha: 21.11.17
 
 
 
