@@ -1,0 +1,46 @@
+    /* Estilos para la ventana modal */
+    .modal {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.5);
+    }
+
+    .modal-content {
+      background-color: #fff;
+      width: 300px;
+      margin: 100px auto;
+      padding: 20px;
+      position: relative;
+    }
+
+    .close-button {
+      position: absolute;
+      top: 5px;
+      right: 10px;
+      cursor: pointer;
+    }
+
+#configscreen {
+    position: absolute;
+    right: 94px;
+    top: 0;
+}
+
+#configscreen a {
+    background-color: #eee;
+    border-radius: 0 0 0 5px;
+    color: #ccc;
+    display: block;
+    font-size: 160%;
+    font-weight: 700;
+    padding: 0 .7em .2em;
+    text-decoration: none;
+    text-shadow: 0 -1px 0 #666;
+}
+#configscreen a:hover {
+    color: #c00
+}
