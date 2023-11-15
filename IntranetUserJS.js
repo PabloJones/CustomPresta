@@ -93,7 +93,9 @@ function setearFecha(tipoPrestamo) {
 
   if (tipoPrestamo == "Unico") {
       f.setDate(f.getDate() + 1);
+	  // 218 corresponde al ID del Informe de Koha Feriados Repetibles que deberá ser creado 
       realizarPeticionesAjax(218, f, branchcode).then(function(resultadoFinal) {
+	 // 217 corresponde al ID del Informe de Koha Feriados Especiales que deberá ser creado      
       	realizarPeticionesAjax(217, resultadoFinal, branchcode).then(function(fechaFinal) {
         console.log("Valor final de dd:",fechaFinal);
       	x.value=formatearFecha(fechaFinal, valores.unico);
