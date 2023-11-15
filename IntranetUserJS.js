@@ -82,6 +82,7 @@ function setearFecha(tipoPrestamo) {
   if (circset!=null){
 	if(busqa!=null){
       busqa.disabled=false;
+      busqa.focus();		
     }
     circset.style.display="block";
     botones.forEach(function(boton) {
