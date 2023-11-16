@@ -12,7 +12,8 @@ try{
 }
 
 try{
-//if (branchcode==="AR-YGF"){
+if (document.body.id=="circ_circulation"){
+//  if (branchcode==="AR-YGF"){
 var botones = document.querySelectorAll('button'); // Esto selecciona todos los botones en el documento, ajusta el selector según tus necesidades.
 var valorBuscado = "Préstamo"; // El valor que deseas encontrar en el innerHTML de los botones.
 var busqa=document.querySelector(".barcode");
@@ -28,6 +29,7 @@ var busqa=document.querySelector(".barcode");
   }
 });
 //}
+}
 } catch (e){
   console.error(e.name);    // registra 'Error'
   console.error(e.message);
@@ -35,31 +37,35 @@ var busqa=document.querySelector(".barcode");
 
 /* agregar como tipo prestamo */
 try{
-//if (branchcode==="AR-YGF"){
+if (document.body.id=="circ_circulation"){
+  //if (branchcode==="AR-YGF"){
     var busfs=document.getElementById("clearscreen");
     if (busfs!=null){
       busfs.outerHTML="<span id=\"configscreen\"><a href=\"#\" title=\"Configurar Préstamo\" onclick=\"mostrarConfiguracion()\"><i class=\"fa fa-cog\"></i></a></span>"+busfs.outerHTML;
     }
-//}  
+  //}
+}  
 } catch (e){
   console.error(e.name);    // registra 'Error'
   console.error(e.message);
 }
 
 try{
-//if (branchcode==="AR-YGF"){
+if (document.body.id=="circ_circulation"){
+  //if (branchcode==="AR-YGF"){
   var busqa=document.querySelector(".barcode");
   var f = new Date();
   
   if(busqa!=null){
 	busqa.outerHTML=" <select id=\"TipoPrestamo\" class=\"btn btn-default dropdown-toggle\" onChange=\"setearFecha(this.value)\" style=\"width:30%;\"><option disabled selected>Seleccione una opción</option><option value=\"Normal\">Normal</option><option value=\"Unico\">Único</option><option value=\"Sala\">Sala</option><option value=\"Dia\">Por el día</option></select><div id=\"modalConfiguracion\" class=\"modal\"><div class=\"modal-content\"><span class=\"close-button\" onclick=\"cerrarConfiguracion()\">&times;</span><h2>Configuración de Valores</h2><label for=\"horasInput\">Horas:</label><input type=\"text\" id=\"horasInput\" name=\"horasInput\" placeholder=\"Ej: 3\"><br><label for=\"unicoInput\">Unico:</label><input type=\"text\" id=\"unicoInput\" name=\"unicoInput\" placeholder=\"Ej: 09:00\"><br><label for=\"unico_inicioInput\">Unico Inicio:</label><input type=\"text\" id=\"unico_inicioInput\" name=\"unico_inicioInput\" placeholder=\"Ej: 18\"><br><label for=\"cierreInput\">Cierre:</label><input type=\"text\" id=\"cierreInput\" name=\"cierreInput\" placeholder=\"Ej: 20:00\"><br><button type=\"button\" onclick=\"guardarValoresEnCookies()\">Guardar</button><button type=\"button\" onclick=\"cargarValoresDesdeCookies()\">Cargar</button></div></div>&nbsp;"+busqa.outerHTML;
-  var selpres=document.getElementById("TipoPrestamo");
-  var valores=leerValoresDesdeCookies();
-  var hh = f.getHours();
-  if(hh<=Number(valores.unico_inicio)){
-    selpres[2].disabled=true;
-  }
-//	}
+  	var selpres=document.getElementById("TipoPrestamo");
+  	var valores=leerValoresDesdeCookies();
+  	var hh = f.getHours();
+  	if(hh<=Number(valores.unico_inicio)){
+    		selpres[2].disabled=true;
+  	}
+}
+//}
 }  
 } catch (e){
   console.error(e.name);    // registra 'Error'
@@ -82,7 +88,7 @@ function setearFecha(tipoPrestamo) {
   if (circset!=null){
 	if(busqa!=null){
       busqa.disabled=false;
-      busqa.focus();		
+      busqa.focus();
     }
     circset.style.display="block";
     botones.forEach(function(boton) {
@@ -94,9 +100,7 @@ function setearFecha(tipoPrestamo) {
 
   if (tipoPrestamo == "Unico") {
       f.setDate(f.getDate() + 1);
-	  // 218 corresponde al ID del Informe de Koha Feriados Repetibles que deberá ser creado 
       realizarPeticionesAjax(218, f, branchcode).then(function(resultadoFinal) {
-	 // 217 corresponde al ID del Informe de Koha Feriados Especiales que deberá ser creado      
       	realizarPeticionesAjax(217, resultadoFinal, branchcode).then(function(fechaFinal) {
         console.log("Valor final de dd:",fechaFinal);
       	x.value=formatearFecha(fechaFinal, valores.unico);
